@@ -1,0 +1,12 @@
+import openai
+
+openai.api_key = "SUA_CHAVE_API"
+
+def conversar(mensagem):
+    resposta = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": mensagem}]
+    )
+    return resposta.choices[0].message.content
+
+print(conversar("Oi, me dê uma dica para mudar de carreira para desenvolvimento."))
